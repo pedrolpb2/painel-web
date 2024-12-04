@@ -192,16 +192,16 @@ function install_continue {
 function install_continue2 {
 cd /bin || exit
 rm pweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/pedrolpb2/painel-web/main/pweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/pedrolpb2/painel-web/master/pweb > /dev/null 2>&1
 chmod 777 pweb > /dev/null 2>&1
 clear
 [[ ! -d /bin/ppweb ]] && mkdir /bin/ppweb
 cd /bin/ppweb || exit
 rm *.sh ver* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/pedrolpb2/painel-web/main/verifatt.sh > /dev/null 2>&1
-wget https://raw.githubusercontent.com/pedrolpb2/painel-web/main/verpweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/pedrolpb2/painel-web/main/verweb > /dev/null 2>&1
-wget https://raw.githubusercontent.com/pedrolpb2/painel-web/main/whatsapp.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/pedrolpb2/painel-web/master/verifatt.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/pedrolpb2/painel-web/master/verpweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/pedrolpb2/painel-web/master/verweb > /dev/null 2>&1
+wget https://raw.githubusercontent.com/pedrolpb2/painel-web/master/whatsapp.sh > /dev/null 2>&1
 verp=$(sed -n '1 p' /bin/ppweb/verpweb| sed -e 's/[^0-9]//ig') &>/dev/null
 verw=$(sed -n '1 p' /bin/ppweb/verweb| sed -e 's/[^0-9]//ig') &>/dev/null
 echo -e "$verp" >/bin/ppweb/attpweb
@@ -244,7 +244,7 @@ curl -sS https://getcomposer.org/installer | php > /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer > /dev/null 2>&1
 chmod +x /usr/local/bin/composer > /dev/null 2>&1
 cd /var/www/html || exit
-wget https://raw.githubusercontent.com/pedrolpb2/painel-web/main/gestorssh.zip > /dev/null 2>&1
+wget https://raw.githubusercontent.com/pedrolpb2/painel-web/master/gestorssh.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
@@ -335,7 +335,7 @@ echo ""
 echo -e "SSH WEB" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "                              \033[1;31mBy @smigolvip\033[1;36m" | lolcat
 echo ""
-chave=$(curl -sSL "https://raw.githubusercontent.com/pedrolpb2/painel-web/main/chave") &>/dev/null
+chave=$(curl -sSL "https://raw.githubusercontent.com/pedrolpb2/painel-web/master/chave") &>/dev/null
 
 read -p "DIGITE A CHAVE DE INSTALAÇÃO: " key
     
