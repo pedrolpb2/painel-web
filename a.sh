@@ -44,6 +44,7 @@ function print_center {
     text="$2"
   fi
 
+
   while read line; do
     unset space
     x=$(((54 - ${#line}) / 2))
@@ -59,6 +60,7 @@ function print_center {
   done <<<$(echo -e "$text")
 }
 
+
 function title {
   clear
   msg -bar
@@ -69,6 +71,7 @@ function title {
   fi
   msg -bar
 }
+
 
 function stop_install {
   [[ ! -e /bin/pweb ]]  && {
@@ -86,9 +89,11 @@ function stop_install {
 }
 }
 
+
 function os_system {
   system=$(cat -n /etc/issue | grep 1 | cut -d ' ' -f6,7,8 | sed 's/1//' | sed 's/      //')
   distro=$(echo "$system" | awk '{print $1}')
+
 
   case $distro in
   Debian) vercion=$(echo $system | awk '{print $3}' | cut -d '.' -f1) ;;
@@ -116,6 +121,7 @@ function dependencias {
       sleep 2
       tput cuu1 && tput dl1
 
+
       msg -nazu "    INSTALANDO $i$(msg -ama "$pts")"
       if apt install $i -y &>/dev/null; then
         msg -verd " INSTALADO"
@@ -138,7 +144,7 @@ cat /dev/null > ~/.bash_history && history -c
 rm /bin/ubuinst* > /dev/null 2>&1
 exit;
 else
-  echo -e 'by: @smigolvip' >/usr/lib/telegram
+  echo -e 'by: @Smigolvip' >/usr/lib/telegram
   msg -bar
   echo -e "\e[1;97m           \e[5m\033[1;100m   ATUALIZAÇÃO DO SISTEMA   \033[1;37m"
   msg -bar
@@ -169,6 +175,7 @@ else
   clear
 fi
 }
+
 
 function install_continue {
   os_system
@@ -267,9 +274,11 @@ rm phpMyAdmin-5.2.0-all-languages.zip > /dev/null 2>&1
 cd /root || exit
 }
 
+
 function pconf { 
 sed "s/1020/$pwdroot/" /var/www/html/pages/system/pass.php > /tmp/pass
 mv /tmp/pass /var/www/html/pages/system/pass.php
+
 
 }
 function inst_db { 
@@ -333,9 +342,10 @@ clear
 echo -e "\E[44;1;37m    INSTALANDO PAINEL    \E[0m"
 echo ""
 echo -e "SSH WEB" | figlet | boxes -d stone -p a0v0 | lolcat
-echo -e "                              \033[1;31mBy @smigolvip\033[1;36m" | lolcat
+echo -e "                              \033[1;31mBy @Smigolvip\033[1;36m" | lolcat
 echo ""
 chave=$(curl -sSL "https://raw.githubusercontent.com/pedrolpb2/painel-web/main/chave") &>/dev/null
+
 
 read -p "DIGITE A CHAVE DE INSTALAÇÃO: " key
     
@@ -400,20 +410,20 @@ sed -i "s;post_max_size = 8M;post_max_size = 256M;g" /etc/php/8.1/apache2/php.in
 echo -e "SSH WEB" | figlet | boxes -d stone -p a0v0 | lolcat
 echo -e "                              \033[1;31mBy @Smigolvip\033[1;36m" | lolcat
 echo ""
-echo -e "\033[1;32mPAINEL INSTALADO COM SUCESSO!" | lolcat
+echo -e "\033[1;32m✅ PAINEL INSTALADO COM SUCESSO! ✅" | lolcat
 echo ""
-echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
-echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
-echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
+echo -e "\033[1;36m🌐 SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
+echo -e "\033[1;36m👤 USUÁRIO:\033[1;37m admin\033[0m"
+echo -e "\033[1;36m🔐 SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
+echo -e "\033[1;36m🔰 LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
 echo ""
-echo -e "\033[1;36m PHPMYADMIN:\033[1;37m http://$IP/phpmyadmin\033[0m"
-echo -e "\033[1;36m USUÁRIO:\033[1;37m root\033[0m"
-echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
+echo -e "\033[1;36m🚀 PHPMYADMIN:\033[1;37m http://$IP/phpmyadmin\033[0m"
+echo -e "\033[1;36m👤 USUÁRIO:\033[1;37m root\033[0m"
+echo -e "\033[1;36m🔐 SENHA:\033[1;37m $pwdroot\033[0m"
 echo ""
-echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mpweb\033[0m"
-echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@Smigolvip\033[0m" | lolcat
+echo -e "\033[1;31m \033[1;33m❗ COMANDO PRINCIPAL: \033[1;32mpweb\033[0m"
+echo -e "\033[1;33m📱 MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@Smigolvip\033[0m" | lolcat
 echo ""
 echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar...\033[1;32m! \033[0m"; read
 systemctl restart apache2 > /dev/null 2>&1
